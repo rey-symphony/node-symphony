@@ -1,0 +1,10 @@
+{
+  "testSite": "testSite",
+  "testCredentials": {
+    "email": "test@test.com",
+    "password": "password"
+  },
+  "testQuery": "test",
+  "manageUrl": "https://manage.symphonycommerce.com",
+  "mockId": 123
+}
