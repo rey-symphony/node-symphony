@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "symphony-integrations/symphony-commerce"
+    "url": "symphony-integrations/node-symphony"
   },
   "author": "Symphony Commerce SA Team!",
   "license": "ISC",
