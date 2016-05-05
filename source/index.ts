@@ -36,7 +36,7 @@ function initModule(apiOptions: any = {}) {
 
   return returnModules;
 }
-
+*/
 module.exports.verifyHttps = function(req, res, next) {
   if (!req.connection.encrypted) {
     res.status(505).send("HTTP Not Supported");
@@ -46,10 +46,10 @@ module.exports.verifyHttps = function(req, res, next) {
   next();
 }
 
-module.exports.allowOrigins = function(allowedOrigins) {
-  return function (req, res, next) {
-    var _ = require("lodash");
-    var origin = req.headers.origin;
+module.exports.allowOrigins = (allowedOrigins) => {
+  return (req, res, next) => {
+    const _ = require("lodash");
+    const { origin } = req.headers;
 
     if (allowedOrigins && !_.contains(allowedOrigins, origin)) {
       res.status(403).send("Origin: " + origin + " Not Allowed");
@@ -63,29 +63,29 @@ module.exports.allowOrigins = function(allowedOrigins) {
   }
 }
 
-module.exports.managePermissions = function(req, res, next) {
+module.exports.managePermissions = (req, res, next) => {
   if (req.method === 'OPTIONS') {
     next();
     return;
   }
 
-  var site = req.params.site || req.query.site || (req.body && req.body.site);
-  var Symphony = require("symphony-api")({
+  const site = req.params.site || req.query.site || (req.body && req.body.site);
+  const Symphony = require("node-symphony")({
     basicAuth: req.get("Authorization"),
     cookieAuth: req.get("X-SPSESSION"),
     env: req.query.env,
   });
 
-  Symphony.Member.checkPermissions(site).then(function(result) {
+  Symphony.Member.checkPermissions(site).then((result) => {
     if (result.hasPermissions) {
       req.permissions = result;
       next();
     } else {
       res.status(403).send({message: 'Forbidden - Bad Authentication'});
     }
-  }, function(fail) {
-    var failError = fail.error || {};
+  }, (fail) => {
+    const failError = fail.error || {};
     res.status(fail.error.code || 403).send(failError);
   });
-}*/
+}
 
