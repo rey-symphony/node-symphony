@@ -4,8 +4,7 @@
   "description": "Symphony Commerce API module",
   "main": "dist/index.js",
   "scripts": {
-    "test": "gulp mocha",
-    "postinstall": "gulp compile"
+    "test": "gulp mocha"
   },
   "repository": {
     "type": "git",
