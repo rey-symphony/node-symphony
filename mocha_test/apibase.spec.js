@@ -25,6 +25,7 @@ describe("API Base", () => {
       'Subscription', 
       'UrlMapping', 
       'v3Cart',
+      'Variant',
       'Victory',
       'Wholesale'
     ]);    
