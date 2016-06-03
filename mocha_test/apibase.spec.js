@@ -12,6 +12,7 @@ describe("API Base", () => {
     expect(Symphony).to.be.a('object'); 
 
     expect(Symphony).to.have.all.keys([
+      'ASN',
       'Auth', 
       'Order', 
       'Member',
@@ -25,6 +26,7 @@ describe("API Base", () => {
       'Subscription', 
       'UrlMapping', 
       'v3Cart',
+      'Variant',
       'Victory',
       'Wholesale'
     ]);    
