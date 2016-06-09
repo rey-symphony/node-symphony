@@ -11,7 +11,7 @@ export default class Report extends APIBase {
     let fromDateTimestamp: number;
     let toDateTimestamp: number;
 
-    const { fromDate, toDate, offset = 0, noUpload } = reportParams;
+    const { fromDate, toDate, offset = 0, noUpload = true } = reportParams;
 
     try {
       fromDateTimestamp = fromDate ? Date.parse(fromDate) : new Date().getTime();

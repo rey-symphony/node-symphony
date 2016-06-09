@@ -16,7 +16,7 @@ var Report = (function (_super) {
         if (reportParams === void 0) { reportParams = {}; }
         var fromDateTimestamp;
         var toDateTimestamp;
-        var fromDate = reportParams.fromDate, toDate = reportParams.toDate, _a = reportParams.offset, offset = _a === void 0 ? 0 : _a, noUpload = reportParams.noUpload;
+        var fromDate = reportParams.fromDate, toDate = reportParams.toDate, _a = reportParams.offset, offset = _a === void 0 ? 0 : _a, _b = reportParams.noUpload, noUpload = _b === void 0 ? true : _b;
         try {
             fromDateTimestamp = fromDate ? Date.parse(fromDate) : new Date().getTime();
             toDateTimestamp = toDate ? Date.parse(toDate) : new Date().getTime();
