@@ -7,20 +7,15 @@ export default class Report extends APIBase {
     super(options);
   }
 
-  getReport(site: string, reportId: number, reportParams: any) {
-    var reportParams = reportParams || {};
-    var fromDateTimestamp: number;
-    var toDateTimestamp: number;
+  getReport(site: string, reportId: number, reportParams: any = {}) {
+    let fromDateTimestamp: number;
+    let toDateTimestamp: number;
+
+    const { fromDate, toDate, offset = 0, noUpload } = reportParams;
 
     try {
-      fromDateTimestamp = reportParams.fromDate
-        ? Date.parse(reportParams.fromDate)
-        : new Date().getTime();
-
-      toDateTimestamp = reportParams.toDate
-        ? Date.parse(reportParams.toDate)
-        : new Date().getTime();
-
+      fromDateTimestamp = fromDate ? Date.parse(fromDate) : new Date().getTime();
+      toDateTimestamp = toDate ? Date.parse(toDate) : new Date().getTime();
     } catch (ex) {
       this.logger.error(`error`, ex);
       return;
@@ -29,10 +24,11 @@ export default class Report extends APIBase {
     return this.get({
       site: site,
       queryParams: {
-        reportId: reportId,
+        reportId,
         fromDate: fromDateTimestamp,
         toDate: toDateTimestamp,
-        offset: reportParams.offset || 0
+        offset,
+        noUpload
       }
     });
   }

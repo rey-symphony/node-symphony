@@ -1,4 +1,3 @@
-///<reference path='APIBase.ts'/>
 ///<reference path="../interfaces/ApiOptions.ts"/>
 import APIBase from './APIBase';
 

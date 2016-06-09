@@ -3,14 +3,25 @@ import gulpLoadPlugins from 'gulp-load-plugins';
 const plugins = gulpLoadPlugins();
 
 gulp.task('compile', () => {
-	return gulp.src('source/**/*.ts')
-             .pipe(plugins.typescript())   
-             .pipe(gulp.dest("dist"));
+  var tsResult = gulp.src([
+    'source/**/*.ts',
+    'typings/**/*.ts'
+  ])
+  .pipe(plugins.typescript({
+    //declaration: true,
+    noExternalResolve: true
+  }));
+
+  /*tsResult.dts
+  .pipe(plugins.concat("node-symphony.d.ts"))
+  .pipe(gulp.dest('dist'));*/
+
+  return tsResult.js.pipe(gulp.dest('dist'));
 });
 
-gulp.task('mocha', ['compile'], () => {
+gulp.task('test', ['compile'], () => {
   return gulp.src('mocha_test/*.spec.js')
-             .pipe(plugins.mocha());
+ .pipe(plugins.mocha());
 });
 
 gulp.task('dev', ['mocha'], () => {

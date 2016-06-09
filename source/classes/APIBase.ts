@@ -1,4 +1,4 @@
-///<reference path="../node.d.ts"/>
+///<reference path="../../typings/tsd.d.ts"/>
 ///<reference path="../interfaces/ApiParams.ts"/>
 ///<reference path="../interfaces/ApiOptions.ts"/>
 ///<reference path="../interfaces/ApiHeaders.ts"/>

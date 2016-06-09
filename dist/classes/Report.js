@@ -13,16 +13,13 @@ var Report = (function (_super) {
         _super.call(this, options);
     }
     Report.prototype.getReport = function (site, reportId, reportParams) {
-        var reportParams = reportParams || {};
+        if (reportParams === void 0) { reportParams = {}; }
         var fromDateTimestamp;
         var toDateTimestamp;
+        var fromDate = reportParams.fromDate, toDate = reportParams.toDate, _a = reportParams.offset, offset = _a === void 0 ? 0 : _a, noUpload = reportParams.noUpload;
         try {
-            fromDateTimestamp = reportParams.fromDate
-                ? Date.parse(reportParams.fromDate)
-                : new Date().getTime();
-            toDateTimestamp = reportParams.toDate
-                ? Date.parse(reportParams.toDate)
-                : new Date().getTime();
+            fromDateTimestamp = fromDate ? Date.parse(fromDate) : new Date().getTime();
+            toDateTimestamp = toDate ? Date.parse(toDate) : new Date().getTime();
         }
         catch (ex) {
             this.logger.error("error", ex);
@@ -34,7 +31,8 @@ var Report = (function (_super) {
                 reportId: reportId,
                 fromDate: fromDateTimestamp,
                 toDate: toDateTimestamp,
-                offset: reportParams.offset || 0
+                offset: offset,
+                noUpload: noUpload
             }
         });
     };
