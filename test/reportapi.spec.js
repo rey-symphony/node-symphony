@@ -26,7 +26,8 @@ describe("Report", () => {
       reportId: mockId,
       fromDate: 1420070400000,
       toDate: 1420156800000,
-      offset: 0
+      offset: 0,
+      noUpload: true
     }
 
     nock(`${manageUrl}/org/${testSite}`)

@@ -86,6 +86,7 @@ export default class APIBase implements ApiOptions {
   doRequest(options: RequestOptions) {
     this.logger.info(`[ ${options.method} ] : ` + options.uri);
     //request.debug = true;
+    
     options.headers = this.headers;
     return request(options);
   }

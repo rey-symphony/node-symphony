@@ -1,6 +1,7 @@
 interface ApiHeaders {
-    'Accept': string;
-    'Content-Type': string;
-    'Cookie'?: string;
-    'Authorization'?: string;
+  'Accept': string;
+  'Content-Type': string;
+  'User-Agent'?: string;
+  'Cookie'?: string;
+  'Authorization'?: string;
 }

@@ -20,11 +20,11 @@ gulp.task('compile', () => {
 });
 
 gulp.task('test', ['compile'], () => {
-  return gulp.src('mocha_test/*.spec.js')
+  return gulp.src('test/*.spec.js')
  .pipe(plugins.mocha());
 });
 
-gulp.task('dev', ['mocha'], () => {
-  gulp.watch(['source/**', 'mocha_test/*.spec.js'], ['mocha']);
+gulp.task('dev', ['test'], () => {
+  gulp.watch(['source/**', 'test/*.spec.js'], ['test']);
 });
 

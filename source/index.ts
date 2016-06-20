@@ -5,9 +5,25 @@ module.exports = initModule;
 export default initModule;
 
 function initModule(apiOptions: any = {}) {
-  const apiClasses = bulkRequire(`${__dirname}/classes`, [
-    "!(APIBase)*.js"
-  ]);
+  const apiClasses = {
+    ASN: require("./classes/ASN"),
+    Auth: require("./classes/Auth"),
+    Member: require("./classes/Member"),
+    Order: require("./classes/Order"),
+    PageElement: require("./classes/PageElement"),
+    Permission: require("./classes/Permission"),
+    Product: require("./classes/Product"),
+    Report: require("./classes/Report"),
+    SearchSync: require("./classes/SearchSync"),
+    SiteConfig: require("./classes/SiteConfig"),
+    Store: require("./classes/Store"),
+    Subscription: require("./classes/Subscription"),
+    UrlMapping: require("./classes/UrlMapping"),
+    v3Cart: require("./classes/v3Cart"),
+    Variant: require("./classes/Variant"),
+    Victory: require("./classes/Victory"),
+    Wholesale: require("./classes/Wholesale")
+  }
 
   _.each(apiClasses, (apiClass, apiName) => {
     if (_.isEmpty(apiOptions)) {
