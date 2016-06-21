@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const bulkRequire = require("bulk-require");
+
 
 module.exports = initModule;
 export default initModule;
