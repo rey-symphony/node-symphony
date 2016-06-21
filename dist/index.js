@@ -1,6 +1,6 @@
 "use strict";
 var _ = require('lodash');
-var bulkRequire = require("bulk-require");
+
 module.exports = initModule;
 exports.__esModule = true;
 exports["default"] = initModule;
