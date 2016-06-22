@@ -27,10 +27,10 @@ export default class Product extends APIBase {
       site,
       queryParams: {
         q: query || ``,
-        highlight: searchParams.highlight || ``,
+        highlight: searchParams.highlight || false,
         limit: searchParams.limit || 5000,
         offset: searchParams.offset || 0,
-        sort: searchParams.sort || false,
+        sort: searchParams.sort || "id",
       }
     });
   }
